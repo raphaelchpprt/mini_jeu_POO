@@ -6,10 +6,12 @@ class Player
     @life_points = life_points
   end
 
+#Afficher les pv
   def show_state
     puts "\n #{name} a #{life_points} points de vie."
   end
 
+#Dommages infligés
   def gets_damage(damage_received)
     @life_points -= damage_received
     if @life_points <= 0
@@ -18,6 +20,7 @@ class Player
     end
   end
 
+#Faire perdre des pv
   def attacks(player)
     puts "\nLe joueur #{@name} attaque le joueur #{player.name} !"
     damage_done = compute_damage
@@ -31,6 +34,7 @@ class Player
 
 end
 
+#Classe fille
 class HumanPlayer < Player
   attr_accessor :weapon_level
 
@@ -48,6 +52,7 @@ class HumanPlayer < Player
     rand(1..6) * @weapon_level
   end
 
+#changement d'arme à condition qu'elle soit mieux l'arme initiale
   def search_weapon
     new_weapon_level = rand(1..6)
     puts "Tu as trouvé une arme de niveau #{new_weapon_level} !"
@@ -60,6 +65,7 @@ class HumanPlayer < Player
     end
   end
 
+#essayer de trouver un pack soin pour gagner des pv
   def search_health_pack
     health_pack = rand(1..6)
     if health_pack == 1

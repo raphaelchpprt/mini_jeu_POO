@@ -50,7 +50,7 @@ while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 
     attaquer un joueur en vue :
     0 - #{player1.name} a #{player1.life_points} points de vie"
   end
-
+#activation du choix
   print "\n> "
   menu_choice = gets.chomp
   if menu_choice == "a"
@@ -69,7 +69,7 @@ while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 
   puts"\nLes autres joueurs t'attaquent !"
   STDIN.getch #Press any key to continue
   end
-  
+  #la boucle attack
   enemies.each do |player|
     if player.life_points > 0
       player.attacks(user)
@@ -78,6 +78,7 @@ while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 
   end
 end
 
+#fin du game
 puts "\nLa partie est finie"
 if user.life_points > 0
   puts "\nBRAVO ! TU AS GAGNÉ !"
